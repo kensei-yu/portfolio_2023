@@ -1,0 +1,368 @@
+@charset "UTF-8";
+/**
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+/*
+  TODO will need to remove settings on HTML since we can't namespace it.
+  TODO with the prefix, should I group by selector or property for weight savings?
+*/
+html {
+    background-color:#fff ;
+    color: #000;
+  }
+  /*
+    TODO remove settings on BODY since we can't namespace it.
+  */
+  /*
+    TODO test putting a class on HEAD.
+      - Fails on FF.
+  */
+  body , div , dl , dt , dd , ul , ol , li , h1 , h2 , h3 , h4 , h5 , h6 , pre , code , form , fieldset , legend , input , textarea , p , blockquote , th , td {
+    margin: 0;
+    padding: 0;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  fieldset , img {
+    border: 0;
+  }
+  /*
+    TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+  */
+  address , caption , cite , code , dfn , em , strong , th , var {
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  ol , ul {
+    list-style: none;
+  }
+  
+  caption , th {
+    text-align: left;
+  }
+  h1 , h2 , h3 , h4 , h5 , h6 {
+    font-size: 100%;
+    font-weight: normal;
+  }
+  q:before , q:after {
+    content: "";
+  }
+  abbr , acronym {
+    border: 0;
+    font-variant: normal;
+  }
+  /* to preserve line-height and selector appearance */
+  sup {
+    vertical-align: text-top;
+  }
+  sub {
+    vertical-align: text-bottom;
+  }
+  input , textarea , select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  /*to enable resizing for IE*/
+  input , textarea , select {
+    font-size: 100%;
+  }
+  /*because legend doesn't inherit in IE */
+  legend {
+    color: #000;
+  }
+  /* YUI CSS Detection Stamp */
+  #yui3-css-stamp.cssreset {
+    display: none;
+  }
+  
+  /* style.css */
+  
+  /* -------------------- */
+  /* base
+  /* -------------------- */
+  body {
+    font-family: "Roboto", "Noto Sans JP", sans-serif;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  img {
+    vertical-align: top;
+    width: 100%;
+  }
+  
+  
+  
+  /* -------------------- */
+  /* header
+  /* -------------------- */
+  .header {
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    display: flex;
+    height: 200px;
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+
+  .nav-list {
+    /* navの横並び */
+    display: flex;
+  }
+  .nav-item {
+    /* メニューの右側に余白 */
+    margin-right: 15px;
+  }
+  
+  .burger-btn {
+    display: none;
+  }
+  
+  /* ------------------ */
+  /* fv
+  /* ------------------ */
+  
+
+  
+  /* ------------------ */
+  /* about
+  /* ------------------ */
+  .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: .05em;
+    margin-bottom: 70px;
+    text-align: center;
+    color: #000;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    letter-spacing: .1em;
+    line-height: 2;
+    margin-bottom: 40px;
+    color: #000;
+  }
+  .section-wrapper {
+    padding: 100px 10% 50px;
+  }
+
+  h4{
+    font-size: 1.5rem;        font-weight: bold;
+    color: #000;
+    letter-spacing: .1em;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+.section-wrapper {
+  padding: 100px 10% 50px;
+}
+
+h5{
+    font-size: 1.2rem;       font-weight: bold;
+    letter-spacing: .1em;
+    color: #000;
+    line-height: 2;
+    margin-bottom: 40px;
+        }
+        .section-wrapper {
+          padding: 100px 10% 50px;
+        }
+
+p{
+  color: #000;
+}
+  
+  @media screen and (max-width:760px) {
+    /* ----------------------- */
+    /* base_sp
+    /* ----------------------- */
+    /* デフォルトのbuttonスタイルをリセット */
+    button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      margin: 0;
+      outline: none;
+      padding: 0;
+      vertical-align: middle;
+      margin-right: 20px;}
+    
+    /* ------------------ */
+    /* humberger-menu */
+    /* ------------------ */
+    .header {
+      padding: 0 0;
+    }
+      
+  /* 以下、ハンバーガーボタン */
+    .burger-btn {
+      display: block;
+      position: relative;
+      height: 38px;
+      width: 38px;
+      z-index: 3;
+      /* codepenの挙動のため */
+      background-color: transparent;
+      border: none;
+    }
+
+    .bar {
+      background-color: #000;
+      display: block;
+      height: 1px;
+      left: 40%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 20px;
+    }
+    .bar_top {
+      top: 10px;
+    }
+    .bar_mid {
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .bar_bottom {
+      bottom: 10px;
+    }
+    .burger-btn.close .bar_top {
+      transform: translate(-50%,10px) rotate(45deg);
+      transition: transform .3s;
+    }
+    .burger-btn.close .bar_mid {
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .burger-btn.close .bar_bottom {
+      transform: translate(-50%,-8px) rotate(-45deg);
+      transition: transform .3s;
+    }
+    /* スクロール制御 */
+    .noscroll{
+      overflow: hidden;
+    }
+    
+    /* 以下、ハンバーガーメニュー */
+    .nav-wrapper {
+      visibility: hidden;
+      opacity: 0;  
+      height: 100vh;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      transition:all .3s;
+      z-index: 3;/*キービジュアルと.btn_triggerとの重なりの前後関係を調整*/
+    }
+    
+    .header-nav {
+      background-color: #015db2;
+      height: 100%;
+      width: 100%;
+      z-index: 3;
+    }
+    .nav-list {
+      display: block;
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .nav-item {
+      margin-bottom: 40px;
+      margin-right: 18px;
+    }
+    
+    /* メニューオープン時 */
+  .nav-wrapper.fade{
+    visibility: visible;
+    opacity: 1;
+  }
+    .nav-wrapper.slide-in {
+      transform: translateX(0);
+    }
+    
+    /* ------------------ */
+    /* fv */
+    /* ------------------ */
+    .main-copy {
+      font-size: 30px;
+    }
+  
+    /* ------------------ */
+    /* about */
+    /* ------------------ */
+    h3 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .section-wrapper {
+      padding: 100px 5% 50px;
+    }
+
+    h4 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .section-wrapper {
+      padding: 100px 5% 50px;
+    }
+
+    h5 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .section-wrapper {
+      padding: 100px 5% 50px;
+    }
+  }
+
+
+  .footer {
+    background-color: #fff;
+    width: 100%;
+    min-height: 35vh;
+    display: flex;
+    bottom: 0%;
+    text-align: center;
+  }
+.footer div{
+    margin: auto;
+}
+
+.demo1 div{
+  background-color: rgb(243, 241, 241);
+}
+
+
+.demo2 div{
+  font-size: 46px;
+}
+
+.responsive {
+  width: 100%;
+  aspect-ratio: 16/9;
+  }
