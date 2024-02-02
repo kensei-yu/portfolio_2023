@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+<!-- CSS ----->
+<!-- style.css -->
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  
+<div id="wrapper">
+<!-- header -->
+<header id="header">
+  <div class="inner">
+<a href="index.html"><h1>My Portfolio</h1></a>
+<div id="nav-wrapper" class="nav-wrapper">
+  <div class="hamburger" id="js-hamburger">
+    <span class="hamburger__line hamburger__line--1"></span>
+    <span class="hamburger__line hamburger__line--2"></span>
+    <span class="hamburger__line hamburger__line--3"></span>
+  </div>
+  <nav class="sp-nav">
+    <ul>
+      <h2>Menu</h2>
+      <a href="index.html"><h4>TOP</h4></a>
+      <a href="index3.html"> <h4>スキル</h4></a>
+      <a href="index4.html"><h4>作品</h4></a>
+      <a href="index5.html"><h4>お問い合わせ</h4></a>
+     <h2>Links</h2>
+     <div class="sns">
+      <a href="#" target="_blank">
+      <img src="assets/img/icon_twitter.png" alt="">
+      </a>
+      <a href="#" target="_blank">
+      <img src="assets/img/icon_facebook.png" alt="">
+      </a>
+      <a href="#" target="_blank">
+      <img src="assets/img/icon_youtube.png" alt="">
+      </a>
+      </div>
+    </ul>
+  </nav>
+  <div class="black-bg" id="js-black-bg"></div>
+ </div>  
+</div>
+</header>
+<main>
+    <article id="content">
+        <!-- #profile -->
+        <section id="profile">
+        <h2>Profile</h2>
+        <div class="profile-container">
+          <div class="profile-photo">
+            <img src="./assets/img/icon_me.jpg" alt="プロフィール写真">
+          </div>
+          <div class="profile-text">
+            <h5>中村賢成</h5>
+            <p>
+              生年月日：２００５年３月２１日生まれ<br>
+               血液型：Ｏ型<br>
+               特技：ギター、ドラム、イラストなどの手先を使うもの  
+            </p>
+            <p></p>
+            <p>
+              福井県出身、敦賀気比高校卒業。<br>
+              高校在学中にバンド活動を市のイベントで行った際に運営スタッフもしていた。<br>
+              その際、ずっと興味を持っていたウェブ制作を手伝わせていただき、そこから何度か市から依頼を受け本格的にウェブ制作を開始した。<br>
+              高校３年生の夏には１人で初めて１つのサイトを作り上げ、イベント用のページとして使っていただいた。（現在は不具合により、閉鎖中。）<br>
+              現在は、将来的に夢である“IT企業”と呼ばれる職種に着くために日々精進している。
+            </p>
+          </div>
+        </div>
+        <section class="hobbies-section">
+          <h2>趣味</h2>
+          <ul class="hobbies-list">
+            <li>
+              <strong>趣味1: DTM作成</strong>
+              <div class="audio-player">
+                <audio controls>
+                  <source src="./assets/img/dtm.mp3"  type="audio/mp3">
+                  お使いのブラウザはオーディオ要素をサポートしていません。
+                </audio>
+              </div>
+            </li>
+            <li>
+              <strong>趣味2: 動画編集</strong>
+              <div class="video-player">
+                <video controls width="400px">
+                  <source src="./assets/img/kadai.mp4#t=0.1" poster="assets/img/samnail.jpg" type="video/mp4">
+                  お使いのブラウザはビデオ要素をサポートしていません。
+                </video>
+              </div>
+            </li>
+            <!-- その他の趣味をリスト形式で追加 -->
+          </ul>
+        </section>
+        
+        
+        
+       
+</main>
+<!-- footer -->
+<footer>
+<small class="copyright">Copyright 2022 <a href="">My Portfolio</a></small>
+</footer>
+</div>
+</body>
+<script>window.onload = function () {
+  var nav = document.getElementById('nav-wrapper');
+  var hamburger = document.getElementById('js-hamburger');
+  var blackBg = document.getElementById('js-black-bg');
+
+  hamburger.addEventListener('click', function () {
+      nav.classList.toggle('open');
+  });
+  blackBg.addEventListener('click', function () {
+      nav.classList.remove('open');
+  });
+};
+const slide = document.getElementById('slide');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const indicator = document.getElementById('indicator');
+const lists = document.querySelectorAll('.list');
+const totalSlides = lists.length;
+let count = 0;
+let autoPlayInterval;
+function updateListBackground() {
+  for (let i = 0; i < lists.length; i++) {
+    lists[i].style.backgroundColor = i === count % totalSlides ? '#000' : '#fff';
+  }
+}
+function nextClick() {
+  slide.classList.remove(`slide${count % totalSlides + 1}`);
+  count++;
+  slide.classList.add(`slide${count % totalSlides + 1}`);
+  updateListBackground();
+}
+function prevClick() {
+  slide.classList.remove(`slide${count % totalSlides + 1}`);
+  count--;
+  if (count < 0) count = totalSlides - 1;
+  slide.classList.add(`slide${count % totalSlides + 1}`);
+  updateListBackground();
+}
+function startAutoPlay() {
+  autoPlayInterval = setInterval(nextClick, 3000);
+}
+function resetAutoPlayInterval() {
+  clearInterval(autoPlayInterval);
+  startAutoPlay();
+}
+next.addEventListener('click', () => {
+  nextClick();
+  resetAutoPlayInterval();
+});
+prev.addEventListener('click', () => {
+  prevClick();
+  resetAutoPlayInterval();
+});
+indicator.addEventListener('click', (event) => {
+  if (event.target.classList.contains('list')) {
+    const index = Array.from(lists).indexOf(event.target);
+    slide.classList.remove(`slide${count % totalSlides + 1}`);
+    count = index;
+    slide.classList.add(`slide${count % totalSlides + 1}`);
+    updateListBackground();
+    resetAutoPlayInterval();
+  }
+});
+startAutoPlay();
+</script>
+</html>
